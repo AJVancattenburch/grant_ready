@@ -1,0 +1,22 @@
+:root {
+  --blue-vintage: #75c8ae;
+  --orange-vintage: #e57713;
+  --brown-vintage: #5a3d2b;
+  --cream-vintage: #ffecb4;
+}
+
+.bg-blue-vintage {
+  background: linear-gradient(to bottom, transparent 0, var(--blue-vintage) 10%);
+}
+
+.bg-orange-vintage {
+  background: linear-gradient(to bottom, transparent 0, var(--orange-vintage) 10%);
+}
+
+.bg-brown-vintage {
+  background: linear-gradient(to bottom, transparent 0, var(--brown-vintage) 10%);
+}
+
+.bg-cream-vintage {
+  background: linear-gradient(to bottom, transparent 0, var(--cream-vintage) 10%);
+}

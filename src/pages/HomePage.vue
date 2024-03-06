@@ -1,0 +1,83 @@
+<template>
+  <div class="home d-flex flex-column align-items-center justify-content-center">
+    <Hero />
+
+    <section class="col-12 about-section-container d-flex">
+      <About />
+    </section>
+
+    <section class="col-12 services-section-container d-flex justify-content-center align-items-center">
+      <Services />
+    </section>
+
+    <section class="col-12 testimonials-section-container d-flex justify-content-center align-items-center">
+      <Testimonials />
+    </section>
+  </div>
+</template>
+
+<script>
+import { onMounted, ref } from 'vue'
+import * as data from '../constants'
+import Hero from '../components/Hero.vue'
+import About from '../components/About.vue'
+import Services from '../components/Services.vue'
+import Testimonials from '../components/Testimonials.vue'
+import { logger } from "../utils/Logger.js"
+
+export default {
+  setup() {
+
+    const heroSection = ref(data.heroSection)
+    const aboutSection = ref(data.aboutSection)
+    const servicesSection = ref(data.servicesSection.map(s => {
+      return {
+        ...s,
+        header: s.header,
+        icon: s.icon,
+        content: s.content
+      }
+    }))
+    const testimonialsSection = ref(data.testimonialsSection.testimonials.map(t => {
+      return {
+        ...t,
+        name: t.name,
+        content: t.content
+      }
+    }))
+  
+    return {
+      heroSection,
+      aboutSection,
+      servicesSection,
+      testimonialsSection
+    }
+  },
+  components: { 
+    Hero,
+    About,
+    Services,
+    Testimonials
+  }
+}
+</script>
+
+<style scoped lang="scss">
+@import url('../assets/font/Mystical Woods/stylesheet.css');
+
+//* {
+//  outline: 2px solid red;
+//}
+.home {
+  height: 100%;
+  width: 100%;
+  background: var(--cream-vintage);
+  font-family: system-ui;
+  [class*="section-container"] {
+    height: 100vh;
+    &.about-section-container {
+      background: var(--cream-vintage);
+    }
+  }
+}
+</style>
