@@ -1,12 +1,13 @@
 <template>
-  <div class="home d-flex flex-column align-items-center justify-content-center">
+  <div id="hero" class="home d-flex flex-column align-items-center justify-content-center">
     <Hero />
 
-    <section class="col-12 about-section-container d-flex">
+    
+    <section id="about" class="col-12 about-section-container d-flex">
       <About />
     </section>
 
-    <section class="col-12 services-section-container d-flex justify-content-center align-items-center">
+    <section id="services" class="col-12 services-section-container d-flex justify-content-center align-items-center">
       <Services />
     </section>
 
@@ -18,7 +19,7 @@
 
 <script>
 import { onMounted, ref } from 'vue'
-import * as data from '../constants'
+import * as data from '../constants/index.js'
 import Hero from '../components/Hero.vue'
 import About from '../components/About.vue'
 import Services from '../components/Services.vue'
@@ -30,7 +31,7 @@ export default {
 
     const heroSection = ref(data.heroSection)
     const aboutSection = ref(data.aboutSection)
-    const servicesSection = ref(data.servicesSection.map(s => {
+    const servicesSection = ref(data.servicesSection.services.map(s => {
       return {
         ...s,
         header: s.header,
@@ -45,6 +46,8 @@ export default {
         content: t.content
       }
     }))
+
+    
   
     return {
       heroSection,
@@ -57,7 +60,7 @@ export default {
     Hero,
     About,
     Services,
-    Testimonials
+    Testimonials, 
   }
 }
 </script>
@@ -81,3 +84,4 @@ export default {
   }
 }
 </style>
+../constants/index.js../constants/index.js

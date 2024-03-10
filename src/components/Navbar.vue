@@ -1,58 +1,122 @@
 <template>
-  <nav class="navbar navbar-expand-sm bg-transparent px-3">
-    <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
-      <div class="d-flex flex-column align-items-center justify-content-center" style="width: 64px; height: 64px; position: relative; top: -10px;">
-        <Logo class="bg-transparent"/>
+  <nav class="col-12 custom-navbar navbar navbar-expand-sm">
+    <div v-for="link in navLinks" :key="link.id" class="col-2 d-flex justify-content-center align-items-center">
+      <a v-if="link.id === heroSection.id" @click="scrollTo(link.id)" class="link d-flex">
+        <div class="nav-logo">
+          <Logo />
+        </div>
+      </a>
+      <div v-else class="d-flex justify-content-center align-items-center text-black fw-bold fs-1 pt-5 mt-5" style="z-index: 1000;">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a v-if="link.URL" :href="link.URL" class="nav-link">{{ link.title }}</a>
+          </li>
+        </ul>
       </div>
-    </router-link>
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
       aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarText">
-      <!-- LOGIN COMPONENT HERE -->
+      <!-- DROPDOWN COMPONENT HERE -->
       <div>
-        <button class="btn text-light" @click="toggleTheme">
-          <i class="mdi" :class="theme == 'light' ? 'mdi-weather-sunny' : 'mdi-weather-night'"></i>
-        </button>
       </div>
-      <Login />
+      <!--  CONTENT -->
+    </div>
     </div>
   </nav>
 </template>
 
 <script>
-import { onMounted, ref } from 'vue';
-import { loadState, saveState } from '../utils/Store.js';
+import { computed, ref } from 'vue';
+import { navLinks } from '../constants/index';
+import * as data from '../constants/index'
 import Logo from '../components/Logo.vue';
-import Login from './Login.vue';
+import { scrollTo } from '../utils/scrollTo';
 
 export default {
   setup() {
 
-    const theme = ref(loadState('theme') || 'light')
-
-    onMounted(() => {
-      document.documentElement.setAttribute('data-bs-theme', theme.value)
-    })
+    const navLinks = ref(data.navLinks)
+    
+    const heroSection = ref(data.heroSection)
+    const aboutSection = ref(data.aboutSection)
+    const servicesSection = ref(data.servicesSection.services.map(s => {
+      return {
+        ...s,
+        header: s.header,
+        icon: s.icon,
+        content: s.content
+      }
+    }))
+    const testimonialsSection = ref(data.testimonialsSection.testimonials.map(t => {
+      return {
+        ...t,
+        name: t.name,
+        content: t.content
+      }
+    }))
 
     return {
-      theme,
-      toggleTheme() {
-        theme.value = theme.value == 'light' ? 'dark' : 'light'
-        document.documentElement.setAttribute('data-bs-theme', theme.value)
-        saveState('theme', theme.value)
-      }
+      scrollTo,
+      navLinks,
+      heroSection,
+      aboutSection,
+      servicesSection,
+      testimonialsSection
     }
   },
-  components: { Logo, Login }
+  components: {
+    Logo,
+  },
 }
 </script>
 
 <style scoped>
-.navbar {
-  background: transparent;
-  opacity: 0.4;
+.custom-navbar {
+  position: fixed;
+  top: -6.5rem;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  z-index: 1000;
+  &::after {
+    content:'';
+    position: absolute;
+    top: 1rem;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(transparent 0%, #ffecb400 70%, #ffecb490 100%), url(../assets/img/bg-trees-navbar.png);
+    background-size: cover;
+    background-position: 100% 60%;
+    background-repeat: no-repeat;
+    opacity: 0.85;
+    filter: drop-shadow(0 5px 10px var(--blue-vintage));
+  }
+  &:before {
+    box-shadow: inset 0 -5px 10px 0 var(--cream-vintage);
+    mix-blend-mode: overlay;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    mix-blend-mode: overlay;
+    z-index: 0;
+  }
+  .nav-logo {
+    position: relative;
+    top: 3.5rem;
+    left: 1rem;
+    width: 100px;
+    z-index: 1000;
+  }
+}
+.link {
+  text-decoration: none;
 }
 a:hover {
   text-decoration: none;
@@ -69,7 +133,6 @@ a:hover {
 
 @media screen and (min-width: 576px) {
   nav {
-    height: 64px;
   }
 }
 </style>

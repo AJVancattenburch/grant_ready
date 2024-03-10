@@ -5,9 +5,14 @@
     <section class="col-12 carousel-container">
       <Carousel ref="testimonialsCarousel" :itemsToShow="2.25" :wrapAround="true" :transition="500" snapAlign="start">
         <Slide v-for="(t, index) in testimonials" :key="index">
-          <div class="mx-2 d-flex flex-column align-items-center">
-            <h3 class="col-10">{{ t.name }}</h3>
-            <img :id="`${slugKebab(t.name)}-logo`" :src="t.picture" alt="image" class="rounded-circle img-fluid col-2">
+          <div class="col-12 mx-2 d-flex flex-column justify-content-around align-items-center pt-5">
+            <div class="col-12 d-flex justify-content-center align-self-start">
+              <div v-for="i in 5" :key="i" class="mdi mdi-star fs-2" :class="t.rating >= i ? 'mdi-star' : 'mdi-star-outline'"></div>
+            </div>
+            <div class="col-10 d-flex justify-content-around align-items-center">
+              <h3 class="">{{ t.name }}</h3>
+              <img :id="`${slugKebab(t.name)}-logo`" :src="t.company_logo" alt="image" class="rounded-circle img-fluid">
+            </div>
           </div>
           <div class="col-12 fs-4">
             <p>{{ t.content }}</p>
@@ -20,10 +25,10 @@
 
 <script>
 import { computed, ref } from "vue"
-import * as data from "../constants"
+import * as data from "../constants/index.js"
 import { slugKebab } from "../utils/slugKebab.js"
-import { Carousel, Pagination, Slide } from 'vue3-carousel'
-import 'vue3-carousel/dist/carousel.css'
+import { Carousel, Pagination, Slide } from "vue3-carousel"
+import "vue3-carousel/dist/carousel.css"
 
 export default {
   // defineComponent
@@ -40,7 +45,7 @@ export default {
     const testimonials = ref(data.testimonialsSection.testimonials.map(t => {
       return {
         ...t,
-        picture: t.picture,
+        company_logo: t.company_logo,
         name: t.name,
         content: t.content
       }
@@ -68,30 +73,27 @@ export default {
 
 <style scoped>
 .carousel-container {
+  position: relative;
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: self-start !important;
-  .carousel {
-    position: relative;
-    display: flex;
-    flex-direction: column;
+  
     .carousel__slide {
       position: relative;
       display: flex;
       flex-direction: column;
-      justify-content: between;
+      justify-content: start;
+      align-items: center;
       padding: 1rem;
       margin: 1rem;
       width: 100%;
-      height: 600px;
+      height: 500px;
       border-radius: 5%;
       box-shadow: 0 0 5px 0 var(--brown-vintage) inset, ;
       background: linear-gradient(175deg, var(--blue-vintage), var(--cream-vintage));
       color: #000;
-      text-align: center;
       transition: transform 0.5s;
       cursor: pointer;
       user-select: none;
@@ -107,14 +109,17 @@ export default {
         border-radius: 50%;
         outline: 2px solid #000 !important;
       }
-    }
-    img[class$="-logo"] {
+    img[id$="-logo"] {
       width: 50px;
-      height: 50px;
-      object-fit: contain;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      object-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       border-radius: 50%;
       outline: 2px solid #000;
     }
   }
 }
-</style>
+</style>../constants/index.js../constants/index.js

@@ -18,7 +18,7 @@
 
 <script>
 import { ref } from 'vue'
-import * as data from '../constants'
+import * as data from '../constants/index.js'
 import { logger } from "../utils/Logger.js"
 
 export default {
@@ -89,4 +89,4 @@ export default {
     }
   }
 }
-</style>
+</style>../constants../constants/index.js

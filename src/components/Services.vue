@@ -25,13 +25,13 @@
 
 <script>
 import { computed, onMounted, ref } from 'vue'
-import * as data from '../constants'
+import * as data from '../constants/index.js'
 import { logger } from "../utils/Logger.js"
 
 export default {
   setup() {
 
-    const services = ref(data.servicesSection.map(s => s))
+    const services = ref(data.servicesSection.services.map(s => s))
 
     const activeSection = ref(false)
 
@@ -249,6 +249,21 @@ export default {
       display: grid;
       top: 0;
       left: 10%;
+    }
+  }
+  .unset {
+    .planning-body {
+      position: relative;
+      display: grid;
+      transition-delay: 200ms;
+      opacity: 1 !important;
+      font-size: 1.25rem !important;
+      text-shadow: 1px 1px .5px #000;
+      > p {
+        position: relative;
+        padding-top: 100px !important;
+        opacity: 1 !important;
+      }
     }
   }
   .small {

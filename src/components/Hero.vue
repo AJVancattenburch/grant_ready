@@ -1,14 +1,7 @@
 <template>
-  <div class="hero">
+  <div v-if="heroSection" :key="heroSection.id" :id="heroSection.id" class="heroImg">
     <div class="col-8 logo-box">
     </div>
-    <!-- <div class="card-body">
-      <span class="header">Grant Ready</span>
-      <p class="lead pt-3">Get the funding you need to make your dreams come true.</p>
-      <p class="pt-3">
-        <a role="button" class="btn btn-primary btn-lg">Learn More</a>
-      </p>
-    </div> -->
   </div>
 </template>
 
@@ -17,24 +10,24 @@ import { computed, ref } from "vue";
 import * as data from '../constants';
 import { logger } from '../utils/Logger.js';
 export default {
-  
   setup() {
     const heroSection = ref(data.heroSection)
+    
     return {
       heroSection,
       icon: computed(() => `url(${heroSection.value.icon})`),
       backgroundImg: computed(() => `url(${heroSection.value.backgroundImg})`)
     }
-  }
+  },
 }
 </script>
 
 <style scoped lang="scss">
 @import url('../assets/font/Mystical Woods/stylesheet.css');
 
-.hero {
+.heroImg {
   position: relative;
-  height: 92vh;
+  height: 100vh;
   width: 100%;
   font-family: 'Mystical Woods Rough Script';
   background-image: v-bind(backgroundImg);
@@ -103,4 +96,4 @@ export default {
     }
   }
 }
-</style>
+</style>../constants../constants
