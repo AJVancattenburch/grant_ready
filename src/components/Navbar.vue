@@ -7,11 +7,11 @@
         </div>
       </a>
       <div v-else class="d-flex justify-content-center align-items-center text-black fw-bold fs-1 pt-5 mt-5" style="z-index: 1000;">
-        <ul class="navbar-nav">
+        <!-- <ul class="navbar-nav">
           <li class="nav-item">
             <a v-if="link.URL" :href="link.URL" class="nav-link">{{ link.title }}</a>
           </li>
-        </ul>
+        </ul> -->
       </div>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
