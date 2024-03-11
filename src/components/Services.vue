@@ -1,14 +1,16 @@
 <template>
-  <section v-if="serviceSection" :id="serviceSection.id" class="d-flex flex-column justify-content-center align-items-center services-section">
+  <section :id="serviceSection.id" class="d-flex flex-column justify-content-center align-items-center services-section">
     <h1 class="col-12 services-header p-3 text-center">{{ serviceSection.header }}</h1>
 
     <div class="container horizontal-accordion my-5">
       <div
-        class="card choice unset small p-4 mx-1" v-for="service in serviceSection"
+        v-for="service in services"
+        class="card choice unset small p-4 mx-1"
         :key="service.name"
-        @click="toggleSection(service.name)"
+        @click="toggleActiveService(service.name)"
         :class="`${service.name}-icon`"
         :style="{
+          backgroundImage: service.icon,
           backgroundColor: service.backgroundColor,
           color: service.textColor
         }"
@@ -33,7 +35,9 @@ export default {
 
     const serviceSection = ref(service_section)
 
-    const activeSection = ref(false)
+    const services = computed(() => serviceSection.value.services)
+
+    const activeSection = computed(() => services.value.find(s => s.isExpanded))
 
     //Expands default card when section is scrolled into view
     const observer = new IntersectionObserver((entries, observer) => {
@@ -52,7 +56,7 @@ export default {
       once: true
     })
     
-    const toggleSection = (section) => {
+    const toggleActiveService = (section) => {
       activeSection.value = section
       const choiceArray = document.querySelectorAll(".choice")
       choiceArray.forEach((card) => {
@@ -70,17 +74,16 @@ export default {
     }
 
     onMounted(() => {
-      const service = serviceSection.value.find(s => s.name)
-      logger.log(service)
+      const defaultServiceCard = activeSection.value
+      logger.log(defaultServiceCard)
       activeSection.value = observer
       const choiceArray = document.querySelectorAll(".choice")
       choiceArray.forEach((element) => {
         const setHeaderContent = element.setAttribute("data-text", element.querySelector(".card-header").textContent)
-        if (service) {
+        if (defaultServiceCard) {
           observer.observe(element)
           setHeaderContent
-        }
-        else if (!service) {
+        } else {
           element.classList.remove("expand", "unset", "card-header")
           element.classList.add('small')
         }
@@ -88,6 +91,7 @@ export default {
     })
 
     const icon = computed(() => {
+      logger.log(serviceSection.value.services.map(s => s.icon && s.isExpanded))
       return `url(${serviceSection.value.services.map(s => s.icon)})`
     })
 
@@ -95,10 +99,11 @@ export default {
       icon,
       observer,
       serviceSection,
+      services,
       activeSection,
-      toggleSection,
-      textColor: computed(() => `${serviceSection.value.services.map(s => s.textColor)}`),
-      backgroundColor: computed(() => `url(${serviceSection.value.services.backgroundColor})`),
+      toggleActiveService,
+      textColor: computed(() => `${services.value.map(s => s.textColor)}`),
+      backgroundColor: computed(() => `url(${services.value.backgroundColor})`),
     }
   }
 }
@@ -143,23 +148,24 @@ export default {
     align-items: center;
     transition: width 0.2s;
     border-radius:3px;
-    background-position: center;
-    background-size: cover;
-    &::after {
-      content: '';
-      position: absolute;
-      display: grid;
-      place-content: center;
-      align-items: center;
-      background-image: v-bind(icon);
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 1;
+    [class$="-header"] {
+      position: relative;
+      &::after {
+        content: '';
+        position: absolute;
+        display: grid;
+        place-content: center;
+        align-items: center;
+        background: v-bind(icon);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        top: 0;
+        left: 0;
+        width: 100px;
+        height: 100px;
+        z-index: 1;
+      }
     }
     .card-header {
       font-size: 3rem;
@@ -200,6 +206,7 @@ export default {
       height: 100%;
       z-index: 1;
       background: #00000030;
+      background-image: v-bind(icon);
       border-radius: 3px;
     }
     
@@ -245,8 +252,8 @@ export default {
       content: attr(data-text);
       position: absolute;
       display: grid;
-      top: 0;
-      left: 10%;
+      top: 100%;
+      left: 0;
     }
   }
   .unset {
