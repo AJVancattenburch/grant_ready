@@ -23,7 +23,7 @@ import { logger } from "../utils/Logger.js"
 
 export default {
   setup() {
-    const aboutSection = ref(data.aboutSection)
+    const aboutSection = ref(data.about)
     return {
       aboutSection,
     }

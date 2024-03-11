@@ -30,7 +30,6 @@
 
 <script>
 import { computed, ref } from 'vue';
-import { navLinks } from '../constants/index';
 import * as data from '../constants/index'
 import Logo from '../components/Logo.vue';
 import { scrollTo } from '../utils/scrollTo';
@@ -38,11 +37,11 @@ import { scrollTo } from '../utils/scrollTo';
 export default {
   setup() {
 
-    const navLinks = ref(data.navLinks)
+    const navLinks = ref(data.nav_links)
     
-    const heroSection = ref(data.heroSection)
-    const aboutSection = ref(data.aboutSection)
-    const servicesSection = ref(data.servicesSection.services.map(s => {
+    const heroSection = ref(data.hero)
+    const aboutSection = ref(data.about)
+    const servicesSection = ref(data.service_section.services.map(s => {
       return {
         ...s,
         header: s.header,
@@ -50,7 +49,7 @@ export default {
         content: s.content
       }
     }))
-    const testimonialsSection = ref(data.testimonialsSection.testimonials.map(t => {
+    const testimonialsSection = ref(data.testimonial_section.testimonials.map(t => {
       return {
         ...t,
         name: t.name,

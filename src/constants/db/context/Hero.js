@@ -1,7 +1,9 @@
 import { grantReadyLogo, heroImage } from '../../../assets';
 
-export const hero_data = {
+const Hero = {
   id: "hero",
-  icon: grantReadyLogo,
+  logo: grantReadyLogo,
   backgroundImg: heroImage,
 };
+
+export const hero = Hero;

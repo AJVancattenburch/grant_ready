@@ -1,4 +1,4 @@
-const nav_links = [
+const links = [
   {
     id: "hero",
     title: "Hero"
@@ -23,7 +23,7 @@ const nav_links = [
   }
 ]
 
-const nav_link = nav_links.map((link) => {
+const mapped_links = links.map((link) => {
   return {
     id: link.id,
     title: link.title,
@@ -33,6 +33,4 @@ const nav_link = nav_links.map((link) => {
 });
 
 
-export {
-  nav_link
-}
+export const nav_links = mapped_links

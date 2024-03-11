@@ -11,11 +11,11 @@ import * as data from '../constants';
 import { logger } from '../utils/Logger.js';
 export default {
   setup() {
-    const heroSection = ref(data.heroSection)
+    const heroSection = ref(data.hero)
     
     return {
       heroSection,
-      icon: computed(() => `url(${heroSection.value.icon})`),
+      icon: computed(() => `url(${heroSection.value.logo})`),
       backgroundImg: computed(() => `url(${heroSection.value.backgroundImg})`)
     }
   },

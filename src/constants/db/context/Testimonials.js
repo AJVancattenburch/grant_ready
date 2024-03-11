@@ -1,4 +1,4 @@
-const testimonial_data = {
+const Testimonial_data = {
   id: "testimonials",
   header: "Testimonials",
   testimonials: [
@@ -20,6 +20,8 @@ const testimonial_data = {
   ]
 };
 
+const testimonial_data = Testimonial_data
+
 const mappedTestimonials = testimonial_data.testimonials.map((testimonial) => {
   return {
     company_logo: testimonial.company_logo,
@@ -28,8 +30,8 @@ const mappedTestimonials = testimonial_data.testimonials.map((testimonial) => {
   };
 });
 
-export const testimonial_section = new testimonial_data({
+export const testimonial_section = {
   id: testimonial_data.id,
   header: testimonial_data.header,
   testimonials: mappedTestimonials
-});
+};

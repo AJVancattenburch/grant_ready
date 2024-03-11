@@ -42,17 +42,10 @@ export default {
   setup(){
     const testimonialsCarousel = ref(null)
 
-    const testimonials = ref(data.testimonialsSection.testimonials.map(t => {
-      return {
-        ...t,
-        company_logo: t.company_logo,
-        name: t.name,
-        content: t.content
-      }
-    }))
+    const testimonials = ref(data.testimonial_section.testimonials.map(t => t))
 
     const testimonialsHeader = computed(() => {
-      return data.testimonialsSection.header
+      return data.testimonial_section.header
     })
 
     return {

@@ -1,20 +1,20 @@
 <template>
-  <section class="d-flex flex-column justify-content-center align-items-center services-section">
-    <h1 class="col-12 services-header p-3 text-center">Services</h1>
+  <section v-if="serviceSection" :id="serviceSection.id" class="d-flex flex-column justify-content-center align-items-center services-section">
+    <h1 class="col-12 services-header p-3 text-center">{{ serviceSection.header }}</h1>
 
     <div class="container horizontal-accordion my-5">
       <div
-        class="card choice unset small p-4 mx-1" v-for="service in services"
-        :key="service.header"
-        @click="toggleSection(service.header)"
-        :class="`${service.header}-icon`"
+        class="card choice unset small p-4 mx-1" v-for="service in serviceSection"
+        :key="service.name"
+        @click="toggleSection(service.name)"
+        :class="`${service.name}-icon`"
         :style="{
           backgroundColor: service.backgroundColor,
           color: service.textColor
         }"
       >
-        <div class="card-header text-capitalize" :class="`${service.header}-header`">{{ service.header }}</div>
-        <div class="card-body pt-0 mt-0" :class="`${service.header}-body`">
+        <div class="card-header text-capitalize" :class="`${service.name}-header`">{{ service.name }}</div>
+        <div class="card-body pt-0 mt-0" :class="`${service.name}-body`">
           <p class="card-text p-3 pt-0 mt-0">{{ service.content }}</p>
         </div>
       </div>
@@ -25,17 +25,17 @@
 
 <script>
 import { computed, onMounted, ref } from 'vue'
-import * as data from '../constants/index.js'
+import { service_section } from '../constants/index.js'
 import { logger } from "../utils/Logger.js"
 
 export default {
   setup() {
 
-    const services = ref(data.servicesSection.services.map(s => s))
+    const serviceSection = ref(service_section)
 
     const activeSection = ref(false)
 
-    //Create a function that uses the observer API to make the first service card expand when the section is scrolled into view:
+    //Expands default card when section is scrolled into view
     const observer = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -70,7 +70,8 @@ export default {
     }
 
     onMounted(() => {
-      const service = services.value.find(s => s.header === 'planning')
+      const service = serviceSection.value.find(s => s.name)
+      logger.log(service)
       activeSection.value = observer
       const choiceArray = document.querySelectorAll(".choice")
       choiceArray.forEach((element) => {
@@ -85,22 +86,19 @@ export default {
         }
       })
     })
-    // const icon = computed(() => {
-    //   return `url(${services.value.icon})`
-    // })
-    //To correct and properly implement the icon above so we can use it in our css, the following changes need to be made:
+
     const icon = computed(() => {
-      return `url(${services.value.map(s => s.icon)})`
+      return `url(${serviceSection.value.services.map(s => s.icon)})`
     })
 
     return {
       icon,
       observer,
-      services,
+      serviceSection,
       activeSection,
       toggleSection,
-      textColor: computed(() => `${services.value.map(s => s.textColor)}`),
-      backgroundColor: computed(() => `url(${services.value.backgroundColor})`),
+      textColor: computed(() => `${serviceSection.value.services.map(s => s.textColor)}`),
+      backgroundColor: computed(() => `url(${serviceSection.value.services.backgroundColor})`),
     }
   }
 }

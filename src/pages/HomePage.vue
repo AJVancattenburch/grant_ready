@@ -29,25 +29,10 @@ import { logger } from "../utils/Logger.js"
 export default {
   setup() {
 
-    const heroSection = ref(data.heroSection)
-    const aboutSection = ref(data.aboutSection)
-    const servicesSection = ref(data.servicesSection.services.map(s => {
-      return {
-        ...s,
-        header: s.header,
-        icon: s.icon,
-        content: s.content
-      }
-    }))
-    const testimonialsSection = ref(data.testimonialsSection.testimonials.map(t => {
-      return {
-        ...t,
-        name: t.name,
-        content: t.content
-      }
-    }))
-
-    
+    const heroSection = ref(data.hero)
+    const aboutSection = ref(data.about)
+    const servicesSection = ref(data.service_section.services.map(s => s))
+    const testimonialsSection = ref(data.testimonial_section.testimonials.map(t => t))
   
     return {
       heroSection,

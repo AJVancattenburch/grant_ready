@@ -1,6 +1,6 @@
 import { handHeartIcon, prepIcon, operationsIcon } from '../../../assets';
 
-const service_data = {
+const Service_data = {
   id: "services",
   header: "Services",
   services: [
@@ -31,19 +31,10 @@ const service_data = {
   ]
 };
 
-const mappedServices = service_data.services.map((service) => {
-  return {
-    name: service.name,
-    textColor: service.textColor,
-    backgroundColor: service.backgroundColor,
-    icon: service.icon,
-    content: service.content,
-    isExpanded: service.isExpanded,
-  };
-});
+const service_data = Service_data
 
-export const service_section = new service_data({
+export const service_section = {
   id: service_data.id,
   header: service_data.header,
-  services: mappedServices
-});
+  services: service_data.services
+};
