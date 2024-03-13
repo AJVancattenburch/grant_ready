@@ -30,6 +30,7 @@ const mappedTestimonials = testimonial_data.testimonials.map((testimonial) => {
     company_logo: testimonial.company_logo,
     name: testimonial.name,
     content: testimonial.content,
+    rating: testimonial.rating
   };
 });
 

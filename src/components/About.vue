@@ -1,5 +1,5 @@
 <template>
-  <div class="col-12 about-section d-flex flex-column">
+  <div class="col-12 about-section d-flex flex-column pt-4">
     <h1 class="col-12 about-header mb-3 p-3 text-center">{{ aboutSection.header }}</h1>
     <div class="col-12 d-flex justify-content-center align-items-center">
       <div class="col-2 about-section-img d-flex justify-content-center align-items-center ps-5">
@@ -36,6 +36,7 @@ export default {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  z-index: 1;
 }
 
 .about-section {
@@ -53,7 +54,6 @@ export default {
     font-size: 3rem;
     font-family: 'Mystical Woods Rough Script', cursive;
     text-shadow: 0 2px 2px var(--cream-vintage);
-    background: linear-gradient(to bottom, var(--blue-vintage), var(--cream-vintage));
     margin-bottom: 1rem;
   }
   .about-section-img {
@@ -71,7 +71,6 @@ export default {
     line-height: 2rem;
     text-indent: 2rem;
     padding: 1rem;
-    z-index: 1;
   }
 }
 

@@ -1,6 +1,6 @@
 <template>
-  <section :id="serviceSection.id" class="d-flex flex-column justify-content-center align-items-center services-section">
-    <h1 class="col-12 services-header p-3 text-center">{{ serviceSection.header }}</h1>
+  <section class="d-flex flex-column justify-content-center align-items-center services-section">
+    <h1 class="col-12 services-header text-center">{{ serviceSection.header }}</h1>
 
     <div class="container horizontal-accordion my-5">
       <div
@@ -115,21 +115,18 @@ export default {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  z-index: 1;
 }
 
 .services-section {
   position: relative;
-  
   height: 100vh;
   width: 100%;
-  background: var(--brown-vintage);
   .services-header {
     font-size: 3rem;
-    position: absolute;
     top: 0;
     font-family: 'Mystical Woods Rough Script', cursive;
     text-shadow: 0 2px 2px var(--cream-vintage);
-    background: linear-gradient(to bottom, var(--cream-vintage) 0, var(--brown-vintage) 100%);
   }
 
   .container{

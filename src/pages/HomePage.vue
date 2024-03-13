@@ -2,18 +2,19 @@
   <div id="hero" class="home d-flex flex-column align-items-center justify-content-center">
     <Hero />
 
-    
-    <section id="about" class="col-12 about-section-container d-flex">
-      <About />
-    </section>
+    <SVGBackgroundWrapper>
+      <section id="about" class="col-12 about-section-container d-flex pt-5">
+        <About />
+      </section>
 
-    <section id="services" class="col-12 services-section-container d-flex justify-content-center align-items-center">
-      <Services />
-    </section>
+      <section id="services" class="col-12 services-section-container d-flex justify-content-center align-items-center">
+        <Services />
+      </section>
 
-    <section class="col-12 testimonials-section-container d-flex justify-content-center align-items-center">
-      <Testimonials />
-    </section>
+      <section class="col-12 testimonials-section-container d-flex justify-content-center align-items-center">
+        <Testimonials />
+      </section>
+    </SVGBackgroundWrapper>
   </div>
 </template>
 
@@ -21,6 +22,7 @@
 import { onMounted, ref } from 'vue'
 import * as data from '../constants/index.js'
 import Hero from '../components/Hero.vue'
+import SVGBackgroundWrapper from '../components/SVGBackgroundWrapper.vue'
 import About from '../components/About.vue'
 import Services from '../components/Services.vue'
 import Testimonials from '../components/Testimonials.vue'
@@ -43,6 +45,7 @@ export default {
   },
   components: { 
     Hero,
+    SVGBackgroundWrapper,
     About,
     Services,
     Testimonials, 
@@ -59,12 +62,11 @@ export default {
 .home {
   height: 100%;
   width: 100%;
-  background: var(--cream-vintage);
   font-family: system-ui;
   [class*="section-container"] {
     height: 100vh;
-    &.about-section-container {
-      background: var(--cream-vintage);
+    #services {
+      
     }
   }
 }

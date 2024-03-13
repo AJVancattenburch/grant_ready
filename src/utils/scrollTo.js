@@ -1,6 +1,12 @@
 export const scrollTo = (id) => {
   let el = document.getElementById(id)
   if (el) {
-    el.scrollIntoView({ behavior: 'smooth' })
+    el.classList.add('header-offsetY')
   }
+  el.scrollIntoView({ behavior: 'smooth' })
+  setTimeout(() => {
+    if (el) {
+      el.classList.remove('header-offsetY')
+    }
+  }, 1000)
 }

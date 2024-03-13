@@ -63,14 +63,6 @@ export default {
       filter: drop-shadow(5px 10px 2px #363e5a);
     }
   }
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
   &::before {
     content: '';
     position: absolute;
@@ -78,8 +70,7 @@ export default {
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(ellipse at top center, transparent 85%, var(--blue-vintage)), linear-gradient(180deg, transparent 90%, var(--blue-vintage));
-    z-index: 1;
+    box-shadow: 0 0 50px 50px var(--blue-vintage);
   }
 }
 
