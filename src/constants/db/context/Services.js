@@ -8,6 +8,7 @@ const Service_data = {
   header: "Services",
   services: [
     {
+      id: 1,
       name: "planning",
       textColor: "#ffecb4",
       backgroundColor: "#75c8ae",
@@ -16,6 +17,7 @@ const Service_data = {
       isExpanded: true,
     },
     {
+      id: 2,
       name: "building",
       textColor: "#75c8ae",
       backgroundColor: "#e57713",
@@ -24,6 +26,7 @@ const Service_data = {
       isExpanded: false,
     },
     {
+      id: 3,
       name: "facilitating",
       textColor: "#e57713",
       backgroundColor: "#ffecb4",

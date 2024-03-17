@@ -11,7 +11,7 @@
         :class="`${service.name}-icon`"
         :style="{
           backgroundColor: service.backgroundColor,
-          color: service.textColor
+          color: service.textColor,
         }"
       >
         <div class="card-header text-capitalize pt-2 d-flex justify-content-center" :class="`${service.name}-header`">
@@ -19,7 +19,7 @@
           <span class="col-10">{{ service.name }}</span>
         </div>
         <div class="card-body pt-0 mt-0" :class="`${service.name}-body`">
-          <p class="card-text p-3 pt-0 mt-0">{{ service.content }}</p>
+          <p class="card-text p-3 pt-0 mt-0" :class="`service${service.id}-text`">{{ service.content }}</p>
         </div>
       </div>
     </div>
@@ -74,6 +74,11 @@ export default {
       });
     }
 
+    const activeService = (id) => {
+      const data = serviceSection.value.services.find(s => s.id === id)
+      return data
+    }
+
     onMounted(() => {
       const defaultServiceCard = activeSection.value
       logger.log(defaultServiceCard)
@@ -95,10 +100,13 @@ export default {
       observer,
       serviceSection,
       services,
+      activeService,
+      backgroundColor: computed(() => {
+        return `${activeService.backgroundColor}`
+      }),
       activeSection,
       toggleActiveService,
       textColor: computed(() => `${services.value.map(s => s.textColor)}`),
-      backgroundColor: computed(() => `url(${services.value.backgroundColor})`),
     }
   }
 }
@@ -155,12 +163,14 @@ export default {
     border: 0;
     background: transparent;
     height: 100px;
-    > .header-icon {
-      position: absolute;
+    .header-icon {
+      //NOTE - You left off here. Need to fix planning icon displaying when planning service card expanded
+      position: relative;
       top: 0;
-      left: 10%;
+      left: -10%;
       width: 100px;
       height: 100px;
+      filter: drop-shadow(2px 2px 2px var(--retro-brown));
     }
     > span {
       width: 100%;
@@ -254,8 +264,7 @@ export default {
       height: 100%;
       z-index: 1;
       border-radius: 3px;
-    }
-    
+    } 
   }
   .expand:has(.planning-body) {
     position: relative;
@@ -393,21 +402,34 @@ export default {
         font-size: 18px;
         font-weight: 500;
         text-align: left;
-        
-        box-shadow: 0 -30px 5px var(--shadow-retro-blue) inset;
         padding-bottom: 2rem;
       }
     }
     .card-text {
-      height: 350px;
-      border-radius: 15px;
+      position: relative;
+      height: 245px;
+      border-radius: 50%;
       overflow-y: auto;
-      scroll-behavior: smooth;;
+      scroll-behavior: smooth;
       font-size: 18px;
       font-weight: 500;
       text-align: left;
-      
-      box-shadow: 0 -30px 5px var(--shadow-retro-blue) inset;
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+      .service1-text::after {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        box-shadow: 0 -30px 15px 0px #78d1af inset;
+      }
     }
   }
 </style>
