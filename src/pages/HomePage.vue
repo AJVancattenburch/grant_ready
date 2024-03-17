@@ -3,7 +3,7 @@
     <Hero />
 
     <SVGBackgroundWrapper>
-      <section id="about" class="col-12 about-section-container d-flex pt-5">
+      <section id="about" class="col-12 about-section-container d-flex">
         <About />
       </section>
 
@@ -11,7 +11,7 @@
         <Services />
       </section>
 
-      <section class="col-12 testimonials-section-container d-flex justify-content-center align-items-center">
+      <section id="testimonials" class="col-12 testimonials-section-container d-flex justify-content-center align-items-center">
         <Testimonials />
       </section>
     </SVGBackgroundWrapper>
@@ -19,14 +19,13 @@
 </template>
 
 <script>
-import { onMounted, ref } from 'vue'
+import { ref } from 'vue'
 import * as data from '../constants/index.js'
 import Hero from '../components/Hero.vue'
 import SVGBackgroundWrapper from '../components/SVGBackgroundWrapper.vue'
 import About from '../components/About.vue'
 import Services from '../components/Services.vue'
 import Testimonials from '../components/Testimonials.vue'
-import { logger } from "../utils/Logger.js"
 
 export default {
   setup() {
@@ -56,19 +55,15 @@ export default {
 <style scoped lang="scss">
 @import url('../assets/font/Mystical Woods/stylesheet.css');
 
-//* {
-//  outline: 2px solid red;
-//}
 .home {
   height: 100%;
   width: 100%;
   font-family: system-ui;
   [class*="section-container"] {
     height: 100vh;
-    #services {
-      
+    .services-section-container {
+      scroll-margin-top: 100px;
     }
   }
 }
 </style>
-../constants/index.js../constants/index.js

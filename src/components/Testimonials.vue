@@ -1,27 +1,28 @@
 <template>
-  <section :id="testimonialSection.id" class="col-12 d-flex flex-column justify-content-center align-items-center">
-    <h1 class="col-12 d-flex justify-content-center align-items-center">{{ testimonialSection.header }}</h1>
+  <section class="col-12 d-flex flex-column section-container">
+    <h1 class="col-12 d-flex justify-content-center align-items-center header">{{ testimonialSection.header }}</h1>
     
-    <section class="col-12 carousel-container">
-      <Carousel ref="testimonialsCarousel" :itemsToShow="2.25" :wrapAround="true" :transition="500" snapAlign="start">
+    <section class="carousel-container">
+      <Carousel ref="testimonialsCarousel" :itemsToShow="!isMobile ? 2.25 : 2.75" :wrapAround="true" :transition="500" snapAlign="center" class="pt-5">
         <Slide v-for="(t, index) in testimonials" :key="index">
-          <div class="col-12 mx-2 d-flex flex-column justify-content-center align-items-center pt-5">
-            <div v-if="t.rating" class="col-12 d-flex justify-content-center align-self-start">
+          <div class="">
+            <div class="logo-container">
+              <img :id="`${slugKebab(t.name)}-logo`" :src="t.company_logo" alt="image" class="rounded-circle img-fluid">
+            </div>
+            <span class="invert-border-radius"></span>
+          </div>
+          <div class="col-12 d-flex flex-column align-items-center pt-5 pe-1">
+            <div v-if="t.rating" class="col-12 d-flex justify-content-start align-self-start">
               <div v-for="(rating, index) in t.rating" :key="index" class="mdi mdi-star fs-2" :class="{
                 'mdi-star': index < Math.floor(t.rating),
                 'mdi-star-half': index === Math.floor(t.rating) && t.rating % 1 !== 0,
                 'mdi-star-outline': index >= Math.ceil(t.rating)
               }"></div>
             </div>
-            <div class="col-12 d-flex justify-content-around align-items-center px-5">
-              <h3 class="">{{ t.name }}</h3>
-              <div class="company-logo-container">
-                <img :id="`${slugKebab(t.name)}-logo`" :src="t.company_logo" alt="image" class="rounded-circle img-fluid">
-              </div>
-            </div>
+            <h3 class="col-12 d-flex justify-content-start align-self-start py-3">{{ t.name }}</h3>
           </div>
           <div class="col-12 fs-4">
-            <p>{{ t.content }}</p>
+            <p class="text-body">{{ t.content }}</p>
           </div>
         </Slide>
       </Carousel>
@@ -63,6 +64,7 @@ export default {
       testimonialsCarousel,
       testimonialSection,
       testimonials,
+      isMobile: computed(() => window.innerWidth < 500)
     }
   }
 }
@@ -76,13 +78,38 @@ export default {
 * {
   z-index: 1;
 }
+
+.header {
+  position: relative;
+  background: var(--shadow-retro-red);
+  font-family: 'Mystical Woods Rough Script', cursive;
+  padding: 1rem;
+  border: 5px groove var(--shadow-retro-orange);
+  border-style: inset;
+  border-right: 0;
+  border-left: 0;
+  filter: drop-shadow(0 0 5px var(--shadow-retro-red));
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(../assets/img/woodgrain-texture.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: .5;
+  }
+}
 .carousel-container {
   position: relative;
-  width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: start;
   align-items: self-start !important;
+  overflow-x: hidden;
   .carousel__slide {
     position: relative;
     display: flex;
@@ -91,50 +118,85 @@ export default {
     align-items: center;
     padding: 1rem;
     margin: 1rem;
-    width: 100%;
-    height: 500px;
+    height: 425px;
     border-radius: 5%;
-    box-shadow: 0 0 5px 0 var(--brown-vintage) inset, ;
+    box-shadow: 0 0 5px 0 var(--retro-brown) inset, ;
     color: #000;
     transition: transform 0.5s;
     cursor: pointer;
     user-select: none;
-    touch-action: pan-y;
     -webkit-tap-highlight-color: transparent;
-    &::after {
+    &::before {
       content: '';
       position: absolute;
       display: grid;
       top: 0;
       left: 0;
-      width: 100%;
+      width: 80%;
+      min-height: 425px;
       height: 100%;
-      background: linear-gradient(var(--shadow-orange), var(--shadow-blue), transparent), linear-gradient(#ffffff90, transparent);
+      background: linear-gradient(var(--shadow-retro-orange), var(--shadow-retro-blue), transparent), linear-gradient(#ffffff90, transparent);
       border-left: 1px solid #00000020;
       border-bottom: 2px solid #00000040;
       border-radius: 5%;
-      filter: drop-shadow(0 0 5px var(--brown-vintage));
+      filter: drop-shadow(0 0 5px var(--retro-brown));
+      z-index: 1;
+      background-blend-mode: multiply;
     }
-    .carousel__slide--visible {
-      position: relative;
-      top: 0;
-      right: 0;
-      width: 50px;
-      height: 500px;
-      object-fit: contain;
-      border-radius: 50%;
-      outline: 2px solid #000 !important;
+    p.text-body {
+      width: 80%;
+      height: 190px;
+      overflow-y: auto !important;
+      scroll-behavior: smooth;
+      padding-bottom: 1rem;
+      padding-inline: 1rem;
+      font-size: 18px;
+      font-weight: 500;
+      text-align: left;
+      text-indent: 1rem;
+      &::first-line {
+        text-indent: 0;
+      }
+    }
+    ::-webkit-scrollbar {
+      display: none;
     }
     .mdi-star {
       color: goldenrod;
+      filter: brightness(1.5) drop-shadow(3px 3px 5px #575757) ;
     }
-    .company-logo-container {
-      position: relative;
-      width: 20%;
-      height: 50px;
-      background: black;
-      img[id$="-logo"] {
+    .logo-container {
+      position: absolute;
+      top: 0;
+      right: 20%;
+      width: 150px;
+      height: 125px;
+      background: linear-gradient(var(--shadow-retro-orange), var(--shadow-retro-blue));
+      border-bottom-left-radius: 50%;
+      border-top-right-radius: 20%;
+      filter: drop-shadow(-3px 3px 5px var(--retro-brown)) blur(.5px) saturate(.75);
+      &::before, &::after {
+        content: '';
+        position: absolute;
         width: 50px;
+        height: 100px;
+        background:  radial-gradient(ellipse at center left, transparent 65%, transparent 70%, var(--shadow-retro-brown) 80%);
+        clip-path: polygon(0 0, 100% 0%, 100% 100%, 100% 50%);
+      }
+      &::before {
+        top: 100%;
+        right: 0;
+      }
+      &::after {
+        top: 0;
+        right: 100%;
+      }
+      img[id$="-logo"] {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 75px;
         aspect-ratio: 1/1;
         object-fit: cover;
         object-position: center;
@@ -142,8 +204,49 @@ export default {
         justify-content: center;
         align-items: center;
         border-radius: 50%;
-        outline: 2px solid #000;
+        z-index: 2;
       }
+    }
+    .invert-border-radius {
+      position: absolute;
+      top: 0;
+      right: 20%;
+      width: 150px;
+      height: 125px;
+      border-radius: 50%;
+      mix-blend-mode: lighten;
+      &::before, &::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        width: 30px;
+        height: 40px;
+        overflow: hidden;
+        filter: saturate(.75);
+      }
+      &::before {
+        clip-path: polygon(50% 0, 100% 0%, 100% 100%, 100% 50%);
+        background:  radial-gradient(ellipse at center left, transparent 65%, transparent 70%,  #c67e31 80%);
+        top: 0;
+        left: -29.5px;
+      }
+      &::after {
+        background: radial-gradient(ellipse at bottom left, transparent 71%, transparent 10%, #75c8ae99 80%);
+        bottom: -42.3q;
+        right: 0;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .carousel-container {
+    .carousel__track {
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      align-items: center;
+      gap: 1rem;
     }
   }
 }

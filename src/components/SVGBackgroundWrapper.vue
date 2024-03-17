@@ -17,7 +17,7 @@
     width: 100%;
     height: 100%;
     background: url(../assets/img/grant-ready-background.svg);
-    background-color: #e35d5d;
+    background-color: var(--retro-brown);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

@@ -1,5 +1,5 @@
 <template>
-  <span class="navbar-text">
+  <span class="mobile-dropdown navbar-text">
     <button class="btn selectable text-success lighten-30 text-uppercase my-2 my-lg-0" @click="login"
       v-if="!user.isAuthenticated">
       Login
@@ -49,4 +49,22 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+@media screen and (max-width: 500px) {
+  .mobile-dropdown {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    .dropdown {
+      position: relative;
+      display: inline-block;
+      .dropdown-menu {
+        position: absolute;
+        right: 0;
+        top: 100%;
+        z-index: 1000;
+      }
+    }
+  }
+}
+</style>

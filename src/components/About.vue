@@ -1,6 +1,6 @@
 <template>
-  <div class="col-12 about-section d-flex flex-column pt-4">
-    <h1 class="col-12 about-header mb-3 p-3 text-center">{{ aboutSection.header }}</h1>
+  <div class="col-12 about-section d-flex flex-column">
+    <h1 class="col-12 about-header mb-3 p-2 text-center">{{ aboutSection.header }}</h1>
     <div class="col-12 d-flex justify-content-center align-items-center">
       <div class="col-2 about-section-img d-flex justify-content-center align-items-center ps-5">
         <img :src="aboutSection.image" class="img-fluid" width="auto" alt="">
@@ -32,6 +32,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import url('../assets/font/Healing Bestie/stylesheet.css');
+
 * {
   margin: 0;
   padding: 0;
@@ -45,16 +47,31 @@ export default {
   background-repeat: no-repeat;
   background-position: center left;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   overflow: hidden;
-  margin-bottom: 1rem;
-  scroll-margin: 0;
   .about-header {
-    color: #000;
+    position: relative;
+    background: var(--shadow-retro-red);
+    font-family: 'Healing Bestie Demo';
     font-size: 3rem;
-    font-family: 'Mystical Woods Rough Script', cursive;
-    text-shadow: 0 2px 2px var(--cream-vintage);
-    margin-bottom: 1rem;
+    border: 5px groove var(--shadow-retro-orange);
+    border-right: 0;
+    border-left: 0;
+  filter: drop-shadow(0 0 5px var(--shadow-retro-blue));
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url(../assets/img/woodgrain-texture.png), var(--shadow-retro-red);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: .5;
+      z-index: -1;
+    }
   }
   .about-section-img {
     
@@ -74,11 +91,9 @@ export default {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 500px) {
   .about-section {
-    background-image: none;
-  }
-  .about-section {
+    padding-bottom: 5rem;
     &::before {
       width: 75%;
       height: 75%;
@@ -88,4 +103,4 @@ export default {
     }
   }
 }
-</style>../constants../constants/index.js
+</style>

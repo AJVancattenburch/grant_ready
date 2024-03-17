@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'Healing Bestie Demo';
+    src: url('HealingBestieDemoRegular.eot');
+    src: url('HealingBestieDemoRegular.eot?#iefix') format('embedded-opentype'),
+        url('HealingBestieDemoRegular.woff2') format('woff2'),
+        url('HealingBestieDemoRegular.woff') format('woff'),
+        url('HealingBestieDemoRegular.ttf') format('truetype'),
+        url('HealingBestieDemoRegular.svg#HealingBestieDemoRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

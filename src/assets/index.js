@@ -5,4 +5,4 @@ import handHeartIcon from './img/hand-heart-icon.png';
 import prepIcon from './img/prep-icon.png';
 import operationsIcon from './img/operations-icon.png';
 
-export { grantReadyLogo, heroImage, spareChangeJar, handHeartIcon, prepIcon, operationsIcon };
+export { grantReadyLogo, heroImage, spareChangeJar, handHeartIcon, prepIcon, operationsIcon, };

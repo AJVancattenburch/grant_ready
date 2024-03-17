@@ -70,20 +70,15 @@ export default {
     left: 0;
     width: 100%;
     height: 100%;
-    box-shadow: 0 0 50px 50px var(--blue-vintage);
+    box-shadow: 0 0 50px 50px var(--retro-blue);
   }
 }
 
-@media (max-width: 768px) {
-  .card-body {
-    .header {
-      font-size: 3rem !important;
-    }
-    p {
-      font-size: 1.5rem !important;
-    }
-    .btn-primary {
-      font-size: 1rem !important;
+@media (max-width: 500px) {
+  .heroImg {
+    overflow: hidden;
+    .logo-box {
+      transform: scale(0.75) translate(5%, 50%);
     }
   }
 }

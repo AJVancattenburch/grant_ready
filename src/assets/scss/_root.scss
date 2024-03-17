@@ -1,25 +1,73 @@
 :root {
-  --blue-vintage: #75c8ae;
-  --orange-vintage: ##ffaa33;
-  --brown-vintage: #5a3d2b;
-  --cream-vintage: #ffecb4;
-  --shadow-blue: #75c8ae80;
-  --shadow-orange: #e5771e80;
+  --retro-blue: #75c8ae;
+  --retro-orange: #e5771e;
+  --retro-brown: #5a3d2b;
+  --retro-cream: #ffecb4;
+  --retro-red: #ff4d4d;
+  --shadow-retro-blue: #75c8ae80;
+  --shadow-retro-orange: #e5771e80;
+  --shadow-retro-brown: #5a3d2b80;
+  --shadow-retro-cream: #ffecb480;
+  --shadow-retro-red: #ff4d4dda;
 }
 
-.bg-blue-vintage {
-  background: linear-gradient(to bottom, transparent 0, var(--blue-vintage) 10%);
+.bg-retro-blue {
+  background: linear-gradient(to bottom, transparent 0, var(--retro-blue) 10%);
 }
 
-.bg-orange-vintage {
-  background: linear-gradient(to bottom, transparent 0, var(--orange-vintage) 10%);
+.bg-retro-orange {
+  background: linear-gradient(to bottom, transparent 0, var(--retro-orange) 10%);
 }
 
-.bg-brown-vintage {
-  background: linear-gradient(to bottom, transparent 0, var(--brown-vintage) 10%);
+.bg-retro-brown {
+  background: linear-gradient(to bottom, transparent 0, var(--retro-brown) 10%);
 }
 
-.bg-cream-vintage {
-  background: linear-gradient(to bottom, transparent 0, var(--cream-vintage) 10%);
+.bg-retro-cream {
+  background: linear-gradient(to bottom, transparent 0, var(--retro-cream) 10%);
+}
+
+.bg-retro-red {
+  background: linear-gradient(to bottom, transparent 0, var(--retro-red) 10%);
+}
+
+.text-retro-blue {
+  color: var(--retro-blue);
+}
+
+.text-retro-orange {
+  color: var(--retro-orange);
+}
+
+.text-retro-brown {
+  color: var(--retro-brown);
+}
+
+.text-retro-cream {
+  color: var(--retro-cream);
+}
+
+.text-retro-red {
+  color: var(--retro-red);
+}
+
+.shadow-retro-blue {
+  box-shadow: 0 0 10px var(--shadow-retro-blue);
+}
+
+.shadow-retro-orange {
+  box-shadow: 0 0 10px var(--shadow-retro-orange);
+}
+
+.shadow-retro-brown {
+  box-shadow: 0 0 10px var(--shadow-retro-brown);
+}
+
+.shadow-retro-cream {
+  box-shadow: 0 0 10px var(--shadow-retro-cream);
+}
+
+.shadow-retro-red {
+  box-shadow: 0 0 10px var(--shadow-retro-red);
 }
 

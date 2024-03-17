@@ -1,6 +1,6 @@
 <template>
-  <section :id="id" :component="Component">
-    <slot />
+  <section :id="id" :component="Component" class="col-12 section-container d-flex justify-content-center align-items-center">
+    <Component />
   </section>
 </template>
 

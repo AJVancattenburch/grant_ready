@@ -1,4 +1,7 @@
-import { handHeartIcon, prepIcon, operationsIcon } from '../../../assets';
+// import { handHeartIcon, prepIcon, operationsIcon } from '../../../assets';
+import { handHeartIcon } from "../../../assets/index.js";
+import { prepIcon } from "../../../assets/index.js";
+import { operationsIcon } from "../../../assets/index.js";
 
 const Service_data = {
   id: "services",

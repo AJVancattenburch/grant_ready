@@ -6,8 +6,8 @@
           <Logo />
         </div>
       </a>
-      <div v-else class="d-flex justify-content-center align-items-center text-white shadow-lg fw-bold pt-5 mt-5" style="z-index: 1000;">
-        <ul class="navbar-nav fs-5">
+      <div v-else class="shadow-lg fw-bold pt-5 mt-5" style="z-index: 2;">
+        <ul class="navbar-nav d-flex justify-content-center align-items-center pt-3 fs-5">
           <li class="nav-item">
             <a v-if="link.id === 'linkedin'" :href="link.external_URL" class="nav-link" :class="`mdi ${link.icon}`">{{ link.title }}</a>
             <a v-else @click="scrollTo(link.id)" class="nav-link">{{ link.title }}</a>
@@ -20,10 +20,11 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarText">
-      <!-- DROPDOWN COMPONENT HERE -->
-      <div>
+      <div class="navbar-nav">
+        
       </div>
-      <!--  CONTENT -->
+      <!-- LOGIN COMPONENT HERE -->
+      <Login />
     </div>
     </div>
   </nav>
@@ -34,12 +35,14 @@ import { computed, ref } from 'vue';
 import * as data from '../constants/index'
 import Logo from '../components/Logo.vue';
 import { scrollTo } from '../utils/scrollTo';
+import Login from './Login.vue';
 
 export default {
   setup() {
 
     const navLinks = ref(data.nav_links)
     
+    const isMobile = computed(() => window.innerWidth < 500)
     const heroSection = ref(data.hero)
     const aboutSection = ref(data.about)
     const servicesSection = ref(data.service_section.services.map(s => {
@@ -69,18 +72,23 @@ export default {
   },
   components: {
     Logo,
+    Login,
   },
 }
 </script>
 
 <style scoped>
+@import url('../assets/font/Healing Bestie/stylesheet.css');
+
 .custom-navbar {
   position: fixed;
   top: -6.5rem;
   left: 0;
+  font-family: 'Healing Bestie Demo';
+  text-shadow: 0 2px 0 var(--retro-cream), 0 0px 20px var(--retro-blue);
   width: 100%;
   height: 150px;
-  z-index: 1000;
+  z-index: 2;
   &::after {
     content:'';
     position: absolute;
@@ -93,10 +101,10 @@ export default {
     background-position: 100% 60%;
     background-repeat: no-repeat;
     opacity: 0.85;
-    filter: drop-shadow(0 5px 10px var(--blue-vintage));
+    filter: drop-shadow(0 5px 10px var(--retro-blue));
   }
   &:before {
-    box-shadow: inset 0 -5px 10px 0 var(--cream-vintage);
+    box-shadow: inset 0 -5px 10px 0 var(--retro-cream);
     mix-blend-mode: overlay;
     content: '';
     position: absolute;
@@ -104,34 +112,46 @@ export default {
     left: 0;
     width: 100%;
     height: 100px;
-    mix-blend-mode: overlay;
   }
   .nav-logo {
     position: relative;
     top: 3.5rem;
     left: 1rem;
     width: 100px;
-    z-index: 1000;
+    z-index: 2;
   }
 }
-.link {
+button, a {
   text-decoration: none;
-}
-a:hover {
-  text-decoration: none;
-}
-.nav-link {
+  color: var(--retro-brown);
+  outline: 0 !important;
+  border: 0 !important;
+  height: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-transform: uppercase;
 }
 
-.navbar-nav .router-link-exact-active {
-  border-bottom: 2px solid var(--bs-success);
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
+a:hover {
+  text-decoration: none;
 }
 
-@media screen and (min-width: 576px) {
+@media screen and (max-width: 500px) {
   nav {
+    max-width: 100%;
+    .nav-link {
+      display: none;
+    }
+    .navbar-toggler-icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2rem;
+      color: var(--retro-brown);
+      z-index: 1000 !important;
+    }
   }
 }
 </style>

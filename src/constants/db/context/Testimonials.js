@@ -1,3 +1,9 @@
+const style = {
+  // bgColor: var(--shadow-retro-red)
+  bgColor: "var(--shadow-retro-red)"
+
+}
+
 const Testimonial_data = {
   id: "testimonials",
   header: "Testimonials",
