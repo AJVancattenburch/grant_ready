@@ -1,6 +1,6 @@
 <template>
   <div class="col-12 about-section d-flex flex-column">
-    <h1 class="col-12 about-header mb-3 p-2 text-center">{{ aboutSection.header }}</h1>
+    <h1 class="col-12 about-header mb-3 p-2 text-center text-uppercase">{{ aboutSection.header }}</h1>
     <div class="col-12 d-flex justify-content-center align-items-center">
       <div class="col-2 about-section-img d-flex justify-content-center align-items-center ps-5">
         <img :src="aboutSection.image" class="img-fluid" width="auto" alt="">
@@ -54,6 +54,7 @@ export default {
     background: var(--shadow-retro-red);
     font-family: 'Healing Bestie Demo';
     font-size: 3rem;
+    color: var(--retro-cream);
     border: 5px groove var(--shadow-retro-orange);
     border-right: 0;
     border-left: 0;

@@ -1,6 +1,6 @@
 <template>
   <section class="col-12 d-flex flex-column section-container">
-    <h1 class="col-12 d-flex justify-content-center align-items-center header">{{ testimonialSection.header }}</h1>
+    <h1 class="col-12 d-flex justify-content-center align-items-center header text-uppercase">{{ testimonialSection.header }}</h1>
     
     <section class="carousel-container">
       <Carousel ref="testimonialsCarousel" :itemsToShow="!isMobile ? 2.25 : 2.75" :wrapAround="true" :transition="500" snapAlign="center" class="pt-5">
@@ -82,7 +82,9 @@ export default {
 .header {
   position: relative;
   background: var(--shadow-retro-red);
-  font-family: 'Mystical Woods Rough Script', cursive;
+  font-family: 'Healing Bestie Demo';
+  font-size: 3rem;
+  color: var(--retro-cream);
   padding: 1rem;
   border: 5px groove var(--shadow-retro-orange);
   border-style: inset;
@@ -101,6 +103,7 @@ export default {
     background-position: center;
     background-repeat: no-repeat;
     opacity: .5;
+    z-index: -1;
   }
 }
 .carousel-container {

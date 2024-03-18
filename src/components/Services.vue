@@ -1,6 +1,6 @@
 <template>
   <section class="d-flex flex-column align-items-center services-section">
-    <h1 class="col-12 services-header text-center p-2">{{ serviceSection.header }}</h1>
+    <h1 class="col-12 services-header text-center text-uppercase p-2">{{ serviceSection.header }}</h1>
 
     <div class="container horizontal-accordion my-5">
       <div
@@ -120,7 +120,6 @@ export default {
   box-sizing: border-box;
   z-index: 1;
 }
-
 .services-section {
   position: relative;
   height: 100vh;
@@ -164,7 +163,6 @@ export default {
     background: transparent;
     height: 100px;
     .header-icon {
-      //NOTE - You left off here. Need to fix planning icon displaying when planning service card expanded
       position: relative;
       top: 0;
       left: -10%;
@@ -228,6 +226,9 @@ export default {
     height: 100% !important;
     min-height: 350px;
     font-family: 'Healing Bestie Demo';
+    [class$="-header"] {
+      text-transform: uppercase !important;
+    }
     &:has(.planning-body) {
       background: url('../assets/img/curved-lines.svg');
       background-size: cover;
@@ -237,13 +238,28 @@ export default {
       height: 500px;
       background-color: transparent !important;
       border-bottom-left-radius: 30%;
+      .planning-header {
+        text-transform: uppercase !important;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: 0;
+        z-index: 1;
+        border-radius: 3px;
+      }
+      .planning-body {
+        position: relative;
+        display: grid;
+        place-content: center;
+        align-items: center;
+      }
     }
     > div:has(.building-header, .facilitating-header), .building-body, .facilitating-body {
       position: relative;
       display: grid;
       place-content: center;
       align-items: center;
-      transition-delay: 200ms;
       opacity: 1 !important;
       font-size: 1.25rem;
       text-shadow: 1px 1px .5px #000;
@@ -271,7 +287,7 @@ export default {
     display: grid;
     place-content: center;
     align-items: center;
-    transition-delay: 200ms;
+    width: 100%;
     opacity: 1 !important;
     font-size: 1.25rem !important;
     text-shadow: 1px 1px .5px #000;
@@ -280,11 +296,10 @@ export default {
       display: grid;
       justify-content: center;
       top: 0;
-      left: 0;
-      width: 100%;
-      height: 500px;
-      z-index: 1;
+      left: 50%;
+      transform: translateX(-50%);
       border-radius: 3px;
+      z-index: 1;
     }
   }
   .unset {
@@ -292,6 +307,8 @@ export default {
     width: 10%;
     background-color: v-bind(backgroundColor);
     &:has(.planning-body) {
+      font-size: 1.25rem !important;
+      text-shadow: 1px 1px .5px #000;
       background-color: transparent;
       background: url('../assets/img/curved-lines.svg');
       background-size: cover;
@@ -315,22 +332,26 @@ export default {
       left: 0;
     }
   }
-  .default-expand {
-    .planning-body {
-      position: relative;
-      display: grid;
-      transition-delay: 200ms;
-      opacity: 1 !important;
-      font-size: 1.25rem !important;
-      text-shadow: 1px 1px .5px #000;
-      overflow: hidden;
-      > p {
+  .small {
+    width: 10% !important;
+  &.default-expand {
+    width: 100%;
+      .planning-body {
         position: relative;
-        opacity: 0;
-        animation: slideRight 1s ease-in-out .5s forwards;
-        @keyframes slideRight {
-          0% { transform: translateX(-100%); opacity: 0; }
-          100% { transform: translateX(0); opacity: 1; }
+        display: grid;
+        transition-delay: 200ms;
+        opacity: 1 !important;
+        font-size: 1.25rem !important;
+        text-shadow: 1px 1px .5px #000;
+        overflow: hidden;
+        > p {
+          position: relative;
+          opacity: 0;
+          animation: slideRight 1s ease-in-out .5s forwards;
+          @keyframes slideRight {
+            0% { transform: translateX(-100%); opacity: 0; }
+            100% { transform: translateX(0); opacity: 1; }
+          }
         }
       }
     }
@@ -382,54 +403,51 @@ export default {
       opacity: 0 !important;
     }
   }
-  .unset:has(.building-header, .facilitating-header) div {
-    opacity: 0;
-  }
 }
-  ::-webkit-scrollbar {
-    display: none;
-  }
+::-webkit-scrollbar {
+  display: none;
+}
 
-  @media screen and (max-width: 500px) {
-    .services-section .default-expand:has(.planning-body), .services-section .expand:has(.planning-body) {
-      background: var(--retro-blue) !important;
-      .card-text {
-        height: 350px;
-        border-radius: 15px;
-        overflow-y: auto;
-        scroll-behavior: smooth;
-        padding: 0;
-        font-size: 18px;
-        font-weight: 500;
-        text-align: left;
-        padding-bottom: 2rem;
-      }
-    }
+@media screen and (max-width: 500px) {
+  .services-section .default-expand:has(.planning-body), .services-section .expand:has(.planning-body) {
+    background: var(--retro-blue) !important;
     .card-text {
-      position: relative;
-      height: 245px;
-      border-radius: 50%;
+      height: 350px;
+      border-radius: 15px;
       overflow-y: auto;
       scroll-behavior: smooth;
+      padding: 0;
       font-size: 18px;
       font-weight: 500;
       text-align: left;
-      &::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-      }
-      .service1-text::after {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        box-shadow: 0 -30px 15px 0px #78d1af inset;
-      }
+      padding-bottom: 2rem;
     }
   }
+  .card-text {
+    position: relative;
+    height: 245px;
+    border-radius: 50%;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: left;
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .service1-text::after {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      box-shadow: 0 -30px 15px 0px #78d1af inset;
+    }
+  }
+}
 </style>
