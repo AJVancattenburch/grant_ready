@@ -2,8 +2,8 @@
   <section class="col-12 d-flex flex-column section-container">
     <h1 class="col-12 d-flex justify-content-center align-items-center header text-uppercase">{{ testimonialSection.header }}</h1>
     
-    <section class="carousel-container">
-      <Carousel ref="testimonialsCarousel" :itemsToShow="!isMobile ? 2.25 : 2.75" :wrapAround="true" :transition="500" snapAlign="center" class="pt-5">
+    <section class="">
+      <Carousel ref="testimonialsCarousel" :itemsToShow="!isMobile ? 2.5 : 2" :wrapAround="true" :transition="500" snapAlign="center" class="carousel-container  pt-5">
         <Slide v-for="(t, index) in testimonials" :key="index">
           <div class="">
             <div class="logo-container">
@@ -34,19 +34,16 @@
 import { computed, ref } from "vue"
 import * as data from "../constants/index.js"
 import { slugKebab } from "../utils/slugKebab.js"
-import { Carousel, Pagination, Slide } from "vue3-carousel"
+import { Carousel, Slide } from "vue3-carousel"
 import "vue3-carousel/dist/carousel.css"
 import { logger } from "../utils/Logger.js"
 
 export default {
-  // defineComponent
-  // name: 'Carousel',
+  name: 'WrapAround',
   components: {
     Carousel,
-    Slide,
-    // Pagination,
+    Slide
   },
-  
   setup(){
     const testimonialsCarousel = ref(null)
 
@@ -64,7 +61,9 @@ export default {
       testimonialsCarousel,
       testimonialSection,
       testimonials,
-      isMobile: computed(() => window.innerWidth < 500)
+      isMobile: computed(() => {
+        return window.innerWidth < 500
+      })
     }
   }
 }
