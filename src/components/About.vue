@@ -2,15 +2,13 @@
   <div class="col-12 about-section d-flex flex-column">
     <h1 class="col-12 about-header mb-3 p-2 text-center text-uppercase">{{ aboutSection.header }}</h1>
     <div class="col-12 d-flex justify-content-center align-items-center">
-      <div class="col-2 about-section-img d-flex justify-content-center align-items-center ps-5">
-        <img :src="aboutSection.image" class="img-fluid" width="auto" alt="">
-      </div>
-      <div class="col-8 d-flex flex-column justify-content-end align-items-center">
-        <p class="paragraph">{{ aboutSection.paragraph1 }}</p>
-        <p class="paragraph-2">{{ aboutSection.paragraph2 }}</p>
-      </div>
-      <div class="col-2 about-section-img d-flex justify-content-center align-items-center pe-5">
-        <img :src="aboutSection.image" class="img-fluid" width="auto" alt="">
+      <div class="col-8 content-container d-flex flex-column justify-content-end align-items-center">
+        <p class="content">{{ aboutSection.paragraph1 }}</p>
+        <div class="col-12 img-container">
+          <img :src="aboutSection.image" class="img-fluid" alt="">
+          <img :src="aboutSection.image" class="img-fluid" alt="">
+        </div>
+        <p class="content">{{ aboutSection.paragraph2 }}</p>
       </div>
     </div>
   </div>
