@@ -58,15 +58,19 @@
     p.content {
       font-size: 2.5rem;
       font-weight: 500;
-      text-shadow: 2px 2px 2px var(--shadow-retro-cream);
+      -webkit-text-fill-color: black;
+      -webkit-text-stroke-width: .15px;
+      -webkit-text-stroke-color: var(--retro-cream);
+      text-shadow: 1px 1px 2px var(--retro-cream);
       line-height: 3.5rem;
       text-indent: 2rem;
       padding: 1rem;
+      padding-inline: 6rem;
     }
   }
   .content-container:nth-child(1) {
     p.content {
-      padding-top: 2rem;
+      padding-top: 1rem;
     }
   }
 }
@@ -95,6 +99,7 @@
       -webkit-text-fill-color: black;
       -webkit-text-stroke-width: .1px;
       -webkit-text-stroke-color: var(--retro-cream);
+      padding: 1.5rem 0 !important;
     }
     .content-container:nth-child(1) {
       p.content {

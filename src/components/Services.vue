@@ -16,7 +16,7 @@
       >
         <div class="card-header text-capitalize pt-2 d-flex justify-content-center" :class="`${service.name}-header`">
           <img :src="service.icon" class="header-icon col-2 img-fluid" width="auto" alt="">
-          <span class="col-10">{{ service.name }}</span>
+          <span class="service-header col-10">{{ service.name }}</span>
         </div>
         <div class="card-body pt-0 mt-0" :class="`${service.name}-body`">
           <p class="card-text p-3 pt-0 mt-0" :class="`service${service.id}-text`">{{ service.content }}</p>

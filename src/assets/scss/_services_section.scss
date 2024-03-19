@@ -297,8 +297,10 @@
 @media screen and (max-width: 500px) {
   .services-section .default-expand:has(.planning-body), .services-section .expand:has(.planning-body) {
     background: var(--retro-blue) !important;
+    padding-bottom: 0rem !important;
     .card-text {
-      height: 350px;
+      top: 10%;
+      max-height: 275px;
       border-radius: 15px;
       overflow-y: auto;
       scroll-behavior: smooth;
@@ -306,33 +308,32 @@
       font-size: 18px;
       font-weight: 500;
       text-align: left;
-      padding-bottom: 2rem;
     }
   }
-  .card-text {
+  .service-header {
     position: relative;
-    height: 245px;
-    border-radius: 50%;
+    font-size: 1.75rem !important;
+    width: 80% !important;
+    right: 10% !important;
+  }
+  .card-text {
+    max-height: 275px;
+    border-radius: 15px;
     overflow-y: auto;
     scroll-behavior: smooth;
+    padding: 0;
     font-size: 18px;
     font-weight: 500;
     text-align: left;
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
-    .service1-text::after {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      box-shadow: 0 -30px 15px 0px #78d1af inset;
-    }
+    padding-bottom: 2rem;
+  }
+
+  .service1-text::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 -30px 15px 0px #78d1af inset;
   }
 }
