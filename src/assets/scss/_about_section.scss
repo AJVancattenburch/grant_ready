@@ -92,6 +92,9 @@
       line-height: 2rem !important;
       text-indent: 2rem;
       width: 350px;
+      -webkit-text-fill-color: black;
+      -webkit-text-stroke-width: .1px;
+      -webkit-text-stroke-color: var(--retro-cream);
     }
     .content-container:nth-child(1) {
       p.content {
