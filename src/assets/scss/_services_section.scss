@@ -1,4 +1,4 @@
-@import url('../font/Healing Bestie/stylesheet.css');
+
 
 * {
   margin: 0;
@@ -11,10 +11,11 @@
   height: 100vh;
   width: 100%;
   display: block;
+  user-select: none;
   .services-header {
     position: relative;
     color: var(--retro-cream);
-    font-family: 'Healing Bestie Demo';
+    font-family: 'Futura' Condensed Medium;
     font-size: 3rem;
     background: var(--shadow-retro-red);
     border: 5px groove var(--shadow-retro-orange);
@@ -111,7 +112,7 @@
     width: 100% !important;
     height: 100% !important;
     min-height: 350px;
-    font-family: 'Healing Bestie Demo';
+    font-family: 'Futura' Condensed Medium;
     [class$="-header"] {
       text-transform: uppercase !important;
     }
@@ -257,7 +258,6 @@
       z-index: 100;
       border-bottom-left-radius: 5px;
       border-bottom-right-radius: 5px;
-      background: v-bind(icon);
       transform: translateX(0%);
     }
     &::after {
@@ -297,11 +297,11 @@
 @media screen and (max-width: 500px) {
   .services-section .default-expand:has(.planning-body), .services-section .expand:has(.planning-body) {
     background: var(--retro-blue) !important;
-    padding-bottom: 0rem !important;
+    padding-bottom: 9rem !important;
     .card-text {
-      top: 10%;
-      max-height: 275px;
-      border-radius: 15px;
+      position: relative;
+      top: 30%;
+      height: 375px;
       overflow-y: auto;
       scroll-behavior: smooth;
       padding: 0;
@@ -317,6 +317,7 @@
     right: 10% !important;
   }
   .card-text {
+    position: relative;
     max-height: 275px;
     border-radius: 15px;
     overflow-y: auto;
@@ -326,6 +327,10 @@
     font-weight: 500;
     text-align: left;
     padding-bottom: 2rem;
+  }
+  expand, .expand, .planning-body {
+    border-radius: 15px !important;
+    padding: 0 !important;
   }
 
   .service1-text::after {

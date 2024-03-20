@@ -1,4 +1,4 @@
-@import url('../font/Healing Bestie/stylesheet.css');
+
 
 .about-section {
   position: relative;
@@ -11,7 +11,7 @@
   .about-header {
     position: relative;
     background: var(--shadow-retro-red);
-    font-family: 'Healing Bestie Demo';
+    font-family: 'Futura' Condensed Medium;
     font-size: 3rem;
     color: var(--retro-cream);
     border: 5px groove var(--shadow-retro-orange);
@@ -98,7 +98,7 @@
       width: 350px;
       -webkit-text-fill-color: black;
       -webkit-text-stroke-width: .1px;
-      -webkit-text-stroke-color: var(--retro-cream);
+      -webkit-text-stroke-color: var(--retro-brown) !important;
       padding: 1.5rem 0 !important;
     }
     .content-container:nth-child(1) {

@@ -23,13 +23,11 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import url('../assets/font/Mystical Woods/stylesheet.css');
 
 .heroImg {
   position: relative;
   height: 100vh;
   width: 100%;
-  font-family: 'Mystical Woods Rough Script';
   background-image: v-bind(backgroundImg);
   background-size: cover;
   background-position: center;

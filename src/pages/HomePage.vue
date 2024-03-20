@@ -53,12 +53,12 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import url('../assets/font/Mystical Woods/stylesheet.css');
-
+* {
+  font-family: 'Futura' Condensed Medium;
+}
 .home {
   height: 100%;
   width: 100%;
-  font-family: system-ui;
   [class*="section-container"] {
     height: 100vh;
     .services-section-container {
