@@ -5,6 +5,21 @@
   <main>
     <router-view />
   </main>
+  <footer>
+    <span>©2024 AJ Vancattenburch | All Rights Reserved </span>
+    <div class="col-4 d-flex justify-content-end">
+      <span>Contact Website Creator:</span>
+      <a href="https://my3dlandingpage.web.app/" target="_blank">
+        <i class="mdi mdi-web" title="Creator's Portfolio Website">Website</i>
+      </a>
+      <a href="https://my3dlandingpage.web.app/" target="_blank">
+        <i class="mdi mdi-web" title="Creator's Portfolio Website">Website</i>
+      </a>
+      <a href="https://my3dlandingpage.web.app/" target="_blank">
+        <i class="mdi mdi-web" title="Creator's Portfolio Website">Website</i>
+      </a>
+    </div>
+  </footer>
 </template>
 
 <script>
@@ -29,14 +44,22 @@ export default {
 }
 
 * {
+  font-family: 'Futura' Condensed Medium;
   scroll-behavior: smooth;
   margin: 0;
   padding: 0;
 }
 
 footer {
-  display: grid;
-  place-content: center;
-  height: 32px;
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 35px;
+  color: var(--retro-cream);
+  font-weight: 500;
+  background-color: var(--retro-brown);
+  position: fixed;
+  bottom: 0;
+  z-index: 2;
 }
 </style>

@@ -295,9 +295,31 @@
 }
 
 @media screen and (max-width: 500px) {
+  .card-body {
+    padding-bottom: 5rem;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 350px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 10%;
+      height: 8%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-image: url('../img/chevron-down.svg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: .65;
+    }
+  }
   .services-section .default-expand:has(.planning-body), .services-section .expand:has(.planning-body) {
     background: var(--retro-blue) !important;
     padding-bottom: 9rem !important;
+    padding-inline: 0 !important;
+    border-radius: 15px !important;
     .card-text {
       position: relative;
       top: 30%;
@@ -308,6 +330,21 @@
       font-size: 18px;
       font-weight: 500;
       text-align: left;
+    }
+    .planning-body::before {
+      top: 410px !important;
+    }
+  }
+  .expand:has(.planning-body) {
+    > .planning-header {
+      position: absolute;
+      display: grid;
+      justify-content: center;
+      top: 0;
+      left: 45% !important;
+      > .header-icon {
+        left: -33%;
+      }
     }
   }
   .service-header {
@@ -328,11 +365,10 @@
     text-align: left;
     padding-bottom: 2rem;
   }
-  expand, .expand, .planning-body {
+  .expand, .planning-body {
     border-radius: 15px !important;
     padding: 0 !important;
   }
-
   .service1-text::after {
     position: absolute;
     bottom: 0;

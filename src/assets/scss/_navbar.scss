@@ -61,8 +61,8 @@ a:hover {
 @media screen and (max-width: 500px) {
   nav {
     max-width: 100%;
-    .nav-link {
-      display: none;
+    #navbarText > ul > li > a:nth-child(2):hover {
+      background: linear-gradient(transparent 0%, #ffecb400 70%, #ffecb490 100%);
     }
     button, a {
       all: unset !important;
@@ -80,7 +80,6 @@ a:hover {
       align-items: center;
       width: 2rem;
       height: 2rem;
-      font-size: 2rem;
       color: var(--retro-brown);
       z-index: 1000 !important;
     }
@@ -90,12 +89,12 @@ a:hover {
     }
     ul {
       position: relative;
-      top: 9.5rem;
+      top: 10.25rem;
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 125px;
-      height: 125px;
+      width: 150px;
+      height: 150px;
       background: linear-gradient(transparent 0%, #ffecb400 70%, #ffecb490 100%), url(../img/bg-trees-navbar.png);
       background-size: cover;
       background-position: 100% 60%;
@@ -110,6 +109,8 @@ a:hover {
       top: 0;
       display: flex;
       flex-direction: column;
+      font-size: 1.5rem;
+      font-weight: 500;
     }
   }
 }
