@@ -15,9 +15,16 @@ Based on the readiness evaluation, Grant Ready constructs a customized roadmap t
 ### Facilitating
 Grant Ready offers full-cycle private and public grants management, including developing grants calendars, sourcing opportunities, applying to grants, managing restricted funds, and reporting on spent funds. Additionally, coaching and training are available for internal staff to take over the grants program once set up.
 
+## Showcase (Desktop view)
+<div align="center">
+  <img src="./src/assets/img/Hero.png" alt="Hero section on mobile screens" width="600"/>
+  <img src="./src/assets/img/Services.png" alt="Services section on mobile screens" width="600"/>
+  <img src="./src/assets/img/Testimonials.png" alt="Testimonials section on mobile screens" width="600"/>
+</div>
+
 ## Showcase (Mobile view)
 <div align="center">
   <img src="./src/assets/img/Hero_mobile.png" alt="Hero section on mobile screens" width="200"/>
-  <img src="https://i.ibb.co/VHnq6mq/Services-mobile.png" alt="Services section on mobile screens" width="200"/>
-  <img src="https://i.ibb.co/zS4rgG0/Testimonials-mobile.png" alt="Testimonials section on mobile screens" width="200"/>
+  <img src="./src/assets/img/Services_mobile.png" alt="Services section on mobile screens" width="200"/>
+  <img src="./src/assets/img/Testimonials_mobile.png" alt="Testimonials section on mobile screens" width="200"/>
 </div>
