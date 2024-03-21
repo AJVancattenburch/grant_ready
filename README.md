@@ -17,16 +17,18 @@ Grant Ready offers full-cycle private and public grants management, including de
 
 <hr>
 
-<div align="center">
-<h2>Showcase (Desktop view)</h2>
-  <img src="./src/assets/img/Hero.png" alt="Hero section on mobile screens" width="600"/>
-  <img src="./src/assets/img/Services.png" alt="Services section on mobile screens" width="600"/>
-  <img src="./src/assets/img/Testimonials.png" alt="Testimonials section on mobile screens" width="600"/>
-</div>
+<pre>
+  <div align="center">
+  <h2>Showcase (Desktop view)</h2>
+    <img src="./src/assets/img/Hero.png" alt="Hero section on mobile screens" width="600"/>
+    <img src="./src/assets/img/Services.png" alt="Services section on mobile screens" width="600"/>
+    <img src="./src/assets/img/Testimonials.png" alt="Testimonials section on mobile screens" width="600"/>
+  </div>
 
-<div align="center">
-<h2>Showcase (Mobile view)</h2>
-  <img src="./src/assets/img/Hero_mobile.png" alt="Hero section on mobile screens" width="200"/>
-  <img src="./src/assets/img/Services_mobile.png" alt="Services section on mobile screens" width="200"/>
-  <img src="./src/assets/img/Testimonials_mobile.png" alt="Testimonials section on mobile screens" width="200"/>
-</div>
+  <div align="center">
+  <h2>Showcase (Mobile view)</h2>
+    <img src="./src/assets/img/Hero_mobile.png" alt="Hero section on mobile screens" width="200"/>
+    <img src="./src/assets/img/Services_mobile.png" alt="Services section on mobile screens" width="200"/>
+    <img src="./src/assets/img/Testimonials_mobile.png" alt="Testimonials section on mobile screens" width="200"/>
+  </div>
+</pre>
