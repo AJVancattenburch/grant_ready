@@ -17,7 +17,7 @@ Grant Ready offers full-cycle private and public grants management, including de
 
 ## Showcase (Mobile view)
 <div align="center">
-  <img src="https://i.ibb.co/GVgxr5t/Hero-mobile.png" alt="Hero section on mobile screens" width="200"/>
+  <img src="./src/assets/img/Hero_mobile.png" alt="Hero section on mobile screens" width="200"/>
   <img src="https://i.ibb.co/VHnq6mq/Services-mobile.png" alt="Services section on mobile screens" width="200"/>
   <img src="https://i.ibb.co/zS4rgG0/Testimonials-mobile.png" alt="Testimonials section on mobile screens" width="200"/>
 </div>
