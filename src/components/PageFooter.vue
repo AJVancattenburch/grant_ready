@@ -1,7 +1,7 @@
 <template>
   <footer class="col-12 d-flex justify-content-center align-items-center">
     <div class="author">
-      <span>©</span>2024 All Rights Reserved | Developed by <a href="https://my3dlandingpage.web.app/" target="_blank" style="filter:brightness(2);">Anthony Vancattenburch</a>
+      <span>©</span><span class="hide-on-mobile">2024 All Rights Reserved | Developed by </span><a href="https://my3dlandingpage.web.app/" target="_blank" class="author-name" style="filter:brightness(2);">Anthony Vancattenburch</a>
     </div>
     <div class="contact-info">
       <span>Contact: </span>

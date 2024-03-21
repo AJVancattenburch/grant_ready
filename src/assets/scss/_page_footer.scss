@@ -92,4 +92,29 @@ footer {
     50% { transform: scale(1.05); filter: drop-shadow(.5px .5px 1px var(--shadow-retro-cream)) brightness(1.5); }
     100% { transform: scale(1.05); filter: drop-shadow(.5px .5px 1px var(--shadow-retro-cream)) brightness(1.5); }
   }
+  @media (max-width: 500px) {
+    bottom: 30px;
+    font-size: .9rem;
+  }
+  .hide-on-mobile {
+    display: none;
+  }
+  .author {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 10px;
+    span {
+      color: #77e1fd;
+      position: relative;
+      top: 2.5px;
+    }
+    .author-name {
+      padding-left: .2rem;
+    }
+ }
+
+  .contact-info>span {
+    display: none;
+  }
 }
