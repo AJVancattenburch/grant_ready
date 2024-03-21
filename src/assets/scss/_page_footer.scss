@@ -17,7 +17,7 @@ footer {
     position: absolute;
     left: 0;
     width: 100%;
-    background-image: url('./assets/img/woodgrain-texture.png');
+    background-image: url('../img/woodgrain-texture.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -37,7 +37,15 @@ footer {
   .author {
     z-index: 2;
     > span {
-    font-size: 1.2rem;
+      color: var(--retro-cream);
+      font-size: 1.2rem;
+      filter: brightness(1);
+    }
+    > .author-name {
+      color: var(--retro-blue);
+      font-size: 1.2rem;
+      font-weight: 600;
+      filter: brightness(1) !important;
     }
     > a {
       cursor: pointer !important;
@@ -48,7 +56,7 @@ footer {
     position: absolute;
     right: 0;
     padding-right: 10px;
-    [class$='-icon'] {
+    [class$="-icon"] {
       position: relative;
       top: 2px;
       display: inline-block;
@@ -87,34 +95,29 @@ footer {
       }
     }
   }
-  @keyframes promptToClick {
-    0% { transform: scale(1); filter: drop-shadow(.5px .5px 1px var(--shadow-retro-cream)) brightness(1.25); }
-    50% { transform: scale(1.05); filter: drop-shadow(.5px .5px 1px var(--shadow-retro-cream)) brightness(1.5); }
-    100% { transform: scale(1.05); filter: drop-shadow(.5px .5px 1px var(--shadow-retro-cream)) brightness(1.5); }
-  }
   @media (max-width: 500px) {
     bottom: 30px;
     font-size: .9rem;
-  }
-  .hide-on-mobile {
-    display: none;
-  }
-  .author {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 10px;
-    span {
-      color: #77e1fd;
-      position: relative;
-      top: 2.5px;
+    .hide-on-mobile {
+      display: none;
     }
-    .author-name {
-      padding-left: .2rem;
+    .author {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 10px;
+      text-shadow: 0 1px 1px #000000;
+      span {
+        color: var(--retro-cream);
+        position: relative;
+        top: 0px;
+      }
+      .author-name {
+        padding-left: .2rem;
+      }
+   }
+    .contact-info>span {
+      display: none;
     }
- }
-
-  .contact-info>span {
-    display: none;
   }
 }

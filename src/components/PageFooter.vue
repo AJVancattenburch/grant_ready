@@ -14,9 +14,6 @@
       <a class="github-icon" href="https://github.com/AJVancattenburch" target="_blank">
         <i class="mdi mdi-github" title="Visit creator's Github Profile page"></i>
       </a>
-      <a class="twitter-icon" href="https://twitter.com/AVancattenburch" target="_blank">
-        <i class="mdi mdi-twitter" title="Visit creator's Twitter Profile page"></i>
-      </a>
     </div>
   </footer>
 </template>
