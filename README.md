@@ -15,6 +15,8 @@ Based on the readiness evaluation, Grant Ready constructs a customized roadmap t
 ### Facilitating
 Grant Ready offers full-cycle private and public grants management, including developing grants calendars, sourcing opportunities, applying to grants, managing restricted funds, and reporting on spent funds. Additionally, coaching and training are available for internal staff to take over the grants program once set up.
 
+<hr>
+
 <div align="center">
 <h2>Showcase (Desktop view)</h2>
   <img src="./src/assets/img/Hero.png" alt="Hero section on mobile screens" width="600"/>
