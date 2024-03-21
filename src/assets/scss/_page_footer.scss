@@ -1,0 +1,95 @@
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--retro-cream);
+  font-weight: 500;
+  text-shadow: 0 1px 1px #000000;
+  background: var(--retro-brown);
+  opacity: .99;
+  z-index: 2;
+  &::before, &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    background-image: url('./assets/img/woodgrain-texture.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    mix-blend-mode: overlay;
+  }
+  &::before {
+    top: 0;
+    height: 4px;
+    border-top: 4px solid var(--retro-cream);
+    opacity: .7;
+  }
+  &::after {
+    bottom: 0;
+    height: 100%;
+    opacity: 0.3;
+  }
+  .author {
+    z-index: 2;
+    > span {
+    font-size: 1.2rem;
+    }
+    > a {
+      cursor: pointer !important;
+      transition: all .3s ease-in-out;
+    }
+  }
+  .contact-info {
+    position: absolute;
+    right: 0;
+    padding-right: 10px;
+    [class$='-icon'] {
+      position: relative;
+      top: 2px;
+      display: inline-block;
+      margin: 0 10px;
+      font-size: 1.25rem;
+      -webkit-text-fill-color: transparent;
+      -ms-text-fill-color: transparent;
+      -webkit-background-clip: text;
+      background-clip: text;
+      mix-blend-mode:hard-light;
+      background-size: cover;
+      transition: filter .3s;
+      transition: ease-in-out .3s;
+      z-index: 2;
+      transition: all .3s ease-in-out;
+      cursor: pointer !important;
+      &:hover {
+        filter: drop-shadow(.5px .5px 1px #fffffffa) brightness(1.5) !important;
+      }
+      &.web-icon {
+        mix-blend-mode:hue;
+        background-image: linear-gradient(45deg, #1aa7ec 70%, #1e2f97);
+        filter: drop-shadow(.5px .5px 1px #fffffffa) brightness(1.25);
+      }
+      &.linkedin-icon {
+        background-image: linear-gradient(45deg, #0077b5 70%, #1e2f97);
+        filter: drop-shadow(.5px .5px 1px #fffffffa) brightness(1.25);
+      }
+      &.github-icon {
+        background-image: linear-gradient(45deg, #24292e 70%, #1e2f97);
+        filter: drop-shadow(.5px .5px 1px #fffffffa) brightness(1.25);
+      }
+      &.twitter-icon {
+        background-image: linear-gradient(45deg, #1da1f2 70%, #1e2f97);
+        filter: drop-shadow(.5px .5px 1px #fffffffa) brightness(1.25);
+      }
+    }
+  }
+  @keyframes promptToClick {
+    0% { transform: scale(1); filter: drop-shadow(.5px .5px 1px var(--shadow-retro-cream)) brightness(1.25); }
+    50% { transform: scale(1.05); filter: drop-shadow(.5px .5px 1px var(--shadow-retro-cream)) brightness(1.5); }
+    100% { transform: scale(1.05); filter: drop-shadow(.5px .5px 1px var(--shadow-retro-cream)) brightness(1.5); }
+  }
+}
