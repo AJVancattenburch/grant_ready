@@ -103,12 +103,12 @@ a:hover {
     }
     ul {
       position: relative;
-      top: 10.25rem;
+      top: 11.25rem;
       display: flex;
       justify-content: center;
       align-items: center;
       width: 150px;
-      height: 150px;
+      height: 100%;
       background: linear-gradient(transparent 0%, #ffecb400 70%, #ffecb490 100%), url(../img/bg-trees-navbar.png);
       background-size: cover;
       background-position: 100% 60%;

@@ -9,7 +9,7 @@
       <div v-else class="desktop-links shadow-lg fw-bold pt-5 mt-5" style="z-index: 2;">
         <ul class="navbar-nav d-flex justify-content-center align-items-center pt-3 fs-5">
           <li class="nav-item">
-            <a v-if="link.id === 'linkedin'" target="_blank" :href="link.external_URL" title="Visit My LinkedIn Profile" class="nav-link">{{ link.name }}<i :class="`mdi ${link.icon} ps-1 pb-1`"></i></a>
+            <a v-if="link.id === 'linkedin'" target="_blank" :href="link.external_URL" title="Visit My LinkedIn Profile" class="position-relative nav-link"><i :class="`mdi ${link.icon} pb-1`" style="position: absolute; top: -15px; right: -12px;"></i></a>
             <a v-if="link.id === 'get-started'" target="_blank" :href="link.external_URL" :title="link.title" :class="`${link.id}`" class="nav-link">{{ link.name }}</a>
             <a v-else @click="scrollTo(link.id)" :title="link.title" class="nav-link">{{ link.name }}</a>
           </li>

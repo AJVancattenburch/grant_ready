@@ -95,12 +95,15 @@ footer {
       }
     }
   }
-  @media (max-width: 500px) {
+}
+
+@media (max-width: 500px) {
+  .hide-on-mobile {
+    display: none;
+  }
+  footer {
     bottom: 30px;
     font-size: .9rem;
-    .hide-on-mobile {
-      display: none;
-    }
     .author {
       display: block;
       position: absolute;
@@ -115,7 +118,7 @@ footer {
       .author-name {
         padding-left: .2rem;
       }
-   }
+    }
     .contact-info>span {
       display: none;
     }

@@ -65,5 +65,13 @@ export default {
       scroll-margin-top: 100px;
     }
   }
+  @media (max-width: 500px) {
+    [class*="section-container"] {
+      height: 92.5vh;
+    }
+    .services-section-container {
+      height: 100vh;
+    }
+  }
 }
 </style>

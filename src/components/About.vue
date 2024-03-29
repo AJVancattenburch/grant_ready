@@ -1,7 +1,7 @@
 <template>
   <div class="col-12 about-section d-flex flex-column">
     <h1 class="col-12 about-header mb-3 p-2 text-center text-uppercase">{{ aboutSection.header }}</h1>
-    <div class="col-12 d-flex justify-content-center align-items-center">
+    <div class="col-12 about-content d-flex justify-content-center align-items-center">
       <div class="col-8 content-container d-flex flex-column justify-content-end align-items-center">
         <p class="content">{{ aboutSection.paragraph1 }}</p>
         <div class="col-12 img-container">
