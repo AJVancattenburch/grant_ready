@@ -25,6 +25,12 @@ const links = [
     name: "LinkedIn",
     icon: "mdi-linkedin",
     external_URL: "https://www.linkedin.com/in/brianna-richards-2012/"
+  },
+  {
+    id: "get-started",
+    title: "Get assistance today",
+    name: "Get Started",
+    external_URL: "https://docs.google.com/forms/d/1P0Tr8Itnw7-g1bjR-zNhBv_HMRgpKDOXmvFGi8nxI-8/edit?ts=65d6712e"
   }
 ]
 

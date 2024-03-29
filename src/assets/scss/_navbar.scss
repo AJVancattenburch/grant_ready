@@ -16,15 +16,15 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(transparent 0%, #ffecb400 70%, #ffecb490 100%), url(../img/bg-trees-navbar.png);
+    background: linear-gradient(transparent 0%, #ffecb400 70%, var(--retro-blue) 100%), url(../img/bg-trees-navbar.png);
     background-size: cover;
     background-position: 100% 60%;
     background-repeat: no-repeat;
-    opacity: 0.85;
+    opacity: 0.95;
     filter: drop-shadow(0 5px 10px var(--retro-blue));
   }
   &:before {
-    box-shadow: inset 0 -5px 10px 0 var(--retro-cream);
+    box-shadow: inset 0 -5px 10px 0 var(--retro-blue);
     mix-blend-mode: overlay;
     content: '';
     position: absolute;
@@ -52,6 +52,20 @@ button, a {
   justify-content: center;
   align-items: center;
   text-transform: uppercase;
+}
+.get-started {
+  color: var(--shadow-retro-cream);
+  background: linear-gradient(135deg, var(--retro-brown) 90%, var(--shadow-retro-cream));
+  border-radius: 5px;
+  padding: 1rem;
+  box-shadow: 0 5px 10px 0 var(--retro-blue);
+  outline: 3px solid var(--shadow-retro-cream) !important;
+  cursor: pointer;
+  z-index: 3;
+  &:hover {
+    color: var(--retro-blue);
+    transition: color 0.5s;
+  }
 }
 
 a:hover {
