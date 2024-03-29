@@ -6,6 +6,6 @@ export const scrollTo = (id) => {
   let y = el.getBoundingClientRect().top + window.scrollY + yOffset;
   if (el) {
     window.scrollTo({top: y, behavior: 'smooth'});
-    logger.log("scrolling to:", id, "w/ html reference:", el, `@ ${y}px from top`);
+    logger.log(`scrolling to: ${id} w/ html reference: ${el} @ ${y}px from top`);
   }
 }
