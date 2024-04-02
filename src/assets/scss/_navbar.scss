@@ -41,7 +41,7 @@
     z-index: 2;
   }
 }
-button, a {
+a:is(:not(.get-started)) {
   text-decoration: none;
   color: var(--retro-brown);
   outline: 0 !important;
@@ -53,22 +53,39 @@ button, a {
   align-items: center;
   text-transform: uppercase;
 }
-.get-started {
-  color: var(--shadow-retro-cream);
-  background: linear-gradient(135deg, var(--retro-brown) 90%, var(--shadow-retro-cream));
-  border-radius: 5px;
-  padding: 1rem;
-  box-shadow: 0 5px 10px 0 var(--retro-blue);
-  outline: 3px solid var(--shadow-retro-cream) !important;
-  cursor: pointer;
-  z-index: 3;
-  &:hover {
-    color: var(--retro-blue);
-    transition: color 0.5s;
-  }
+:is(button.get-started) {
+  --fillColor:  var(--retro-red);
+  z-index: 5;
+  
+  box-shadow: 0 0 0 .1em inset var(--fillColor); 
+  --gradient: linear-gradient(var(--fillColor) 0 0) no-repeat;
+  background: 
+    var(--gradient) calc(var(--_p,0%) - 100%) 0%,
+    var(--gradient) calc(200% - var(--_p,0%)) 0%,
+    var(--gradient) calc(var(--_p,0%) - 100%) 100%,
+    var(--gradient) calc(200% - var(--_p,0%)) 100%;
+  background-size: 50.5% calc(var(--_p,0%)/2 + .5%);
+  outline-offset: .1em;
+  transition: background-size .4s, background-position 0s .4s;
 }
-
-a:hover {
+.get-started:hover {
+  z-index: 5;
+  --_p: 100%;
+  transition: background-position .4s, background-size 0s;
+}
+.get-started:active {
+  box-shadow: 0 0 9e9q inset #0009; 
+  background-color: var(--fillColor);
+  color: #fff;
+}
+.get-started {
+  font-family: system-ui, sans-serif;
+  cursor: pointer;
+  padding: .1em .6em;
+  font-weight: bold;  
+  border: none;
+}
+.get-started:hover {
   text-decoration: none;
 }
 
